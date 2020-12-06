@@ -1,5 +1,6 @@
 package me.loper.configuration;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +17,8 @@ public final class ConfigKeysManager {
     private final List<ConfigKeyTypes.BaseConfigKey<?>> keys;
 
     public ConfigKeysManager(Class<?> configKeys) {
-        this.keys = Arrays.stream(configKeys.getClass().getFields())
+        Field[] fields = configKeys.getFields();
+        this.keys = Arrays.stream(fields)
                 .filter(f -> Modifier.isStatic(f.getModifiers()))
                 .filter(f -> ConfigKey.class.equals(f.getType()))
                 .map(f -> {
