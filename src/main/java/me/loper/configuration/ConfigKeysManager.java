@@ -5,12 +5,6 @@ import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * All of the {@link ConfigKey}s used by LuckPerms.
- *
- * <p>The {@link #getKeys()} method and associated behaviour allows this class
- * to function a bit like an enum, but with generics.</p>
- */
 @SuppressWarnings("ClassGetClass")
 public final class ConfigKeysManager {
 

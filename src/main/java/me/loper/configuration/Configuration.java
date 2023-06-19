@@ -1,19 +1,9 @@
 package me.loper.configuration;
 
-
-/**
- * The master configuration used by LuckPerms.
- */
 public interface Configuration {
 
-    /**
-     * Reloads the configuration.
-     */
     void reload();
 
-    /**
-     * Loads all configuration values.
-     */
     void load();
 
     /**

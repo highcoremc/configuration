@@ -39,22 +39,14 @@ public class PluginConfiguration implements Configuration {
 
     @Override
     public synchronized void load() {
-        boolean reload = true;
-
-
         ConfigKeysManager keysManager = new ConfigKeysManager(this.configKeys);
         List<? extends ConfigKey<?>> keys = keysManager.getKeys();
 
         if (this.values == null) {
             this.values = new Object[keys.size()];
-            reload = false;
         }
 
         for (ConfigKey<?> key : keys) {
-            if (reload && key instanceof ConfigKeyTypes.EnduringKey) {
-                continue;
-            }
-
             Object value = key.get(this.adapter);
             this.values[key.ordinal()] = value;
         }

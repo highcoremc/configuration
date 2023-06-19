@@ -19,11 +19,6 @@ public class ConfigKeyTypes {
         return new StringKey(function);
     }
 
-    @Deprecated
-    public static <T> EnduringKey<T> enduringKey(ConfigKey<T> delegate) {
-        return new EnduringKey<>(delegate);
-    }
-
     public abstract static class BaseConfigKey<T> implements ConfigKey<T> {
         int ordinal = -1;
 
@@ -59,20 +54,6 @@ public class ConfigKeyTypes {
         @Override
         public T get(ConfigurationAdapter adapter) {
             return this.function.apply(adapter);
-        }
-    }
-
-    @Deprecated
-    public static class EnduringKey<T> extends BaseConfigKey<T> {
-        private final ConfigKey<T> delegate;
-
-        private EnduringKey(ConfigKey<T> delegate) {
-            this.delegate = delegate;
-        }
-
-        @Override
-        public T get(ConfigurationAdapter adapter) {
-            return this.delegate.get(adapter);
         }
     }
 
