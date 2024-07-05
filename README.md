@@ -1,5 +1,5 @@
 # Configuration
-Simple configuration abstraction for paper/bungee plugins.
+Simple org.highcore.configuration abstraction for paper/bungee plugins.
 
 ## How to use it?
 
@@ -15,7 +15,7 @@ Simple configuration abstraction for paper/bungee plugins.
 ```xml
 <dependency>
     <groupId>com.github.loperd</groupId>
-    <artifactId>configuration</artifactId>
+    <artifactId>org.highcore.configuration</artifactId>
     <version>1.0</version>
 </dependency>
 ```

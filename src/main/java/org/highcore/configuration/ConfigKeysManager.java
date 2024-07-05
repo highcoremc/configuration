@@ -1,4 +1,4 @@
-package me.loper.configuration;
+package org.highcore.configuration;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;

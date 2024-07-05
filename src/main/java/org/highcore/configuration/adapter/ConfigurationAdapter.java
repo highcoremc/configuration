@@ -1,4 +1,4 @@
-package me.loper.configuration.adapter;
+package org.highcore.configuration.adapter;
 
 
 import java.util.List;
@@ -9,6 +9,8 @@ public interface ConfigurationAdapter {
     void reload();
 
     String getString(String path, String def);
+
+    long getLong(String path, long def);
 
     int getInteger(String path, int def);
 

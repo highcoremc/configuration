@@ -1,10 +1,9 @@
-package me.loper.configuration;
+package org.highcore.configuration;
 
-
-import me.loper.configuration.adapter.ConfigurationAdapter;
+import org.highcore.configuration.adapter.ConfigurationAdapter;
 
 /**
- * Represents a key in the configuration.
+ * Represents a key in the org.highcore.configuration.
  *
  * @param <T> the value type
  */
@@ -26,8 +25,9 @@ public interface ConfigKey<T> {
      * <p>The {@link Configuration#get(ConfigKey)} method should be used to
      * retrieve the value, as opposed to calling this directly.</p>
      *
-     * @param adapter the config adapter instance
+     * @param adapter             the config adapter instance
+     * @param config              the org.highcore.configuration
      * @return the value mapped to this key
      */
-    T get(ConfigurationAdapter adapter);
+    T get(ConfigurationAdapter adapter, PluginConfiguration config);
 }

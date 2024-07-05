@@ -1,4 +1,4 @@
-package me.loper.configuration;
+package org.highcore.configuration;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;

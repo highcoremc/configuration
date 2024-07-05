@@ -1,4 +1,4 @@
-package me.loper.configuration;
+package org.highcore.configuration;
 
 public interface Configuration {
 

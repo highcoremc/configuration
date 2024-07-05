@@ -1,7 +1,7 @@
-package me.loper.configuration;
+package org.highcore.configuration;
 
 
-import me.loper.configuration.adapter.ConfigurationAdapter;
+import org.highcore.configuration.adapter.ConfigurationAdapter;
 
 import java.util.List;
 
@@ -19,6 +19,7 @@ public class PluginConfiguration implements Configuration {
      * by {@link ConfigKey#ordinal()}.</p>
      */
     private Object[] values = null;
+    private ConfigKey<?>[] keys = null;
 
     private final Class<?> configKeys;
 
@@ -33,7 +34,11 @@ public class PluginConfiguration implements Configuration {
 
     @SuppressWarnings("unchecked")
     @Override
-    public <T> T get(ConfigKey<T> key) {
+    public synchronized <T> T get(ConfigKey<T> key) {
+        if (null == this.values[key.ordinal()]) {
+            this.values[key.ordinal()] = this.keys[key.ordinal()].get(this.adapter, this);
+        }
+
         return (T) this.values[key.ordinal()];
     }
 
@@ -42,13 +47,16 @@ public class PluginConfiguration implements Configuration {
         ConfigKeysManager keysManager = new ConfigKeysManager(this.configKeys);
         List<? extends ConfigKey<?>> keys = keysManager.getKeys();
 
+        if (this.keys == null) {
+            this.keys = new ConfigKey<?>[keys.size()];
+        }
+
         if (this.values == null) {
             this.values = new Object[keys.size()];
         }
 
         for (ConfigKey<?> key : keys) {
-            Object value = key.get(this.adapter);
-            this.values[key.ordinal()] = value;
+            this.keys[key.ordinal()] = key;
         }
     }
 
