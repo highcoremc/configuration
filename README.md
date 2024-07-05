@@ -14,8 +14,8 @@ Simple org.highcore.configuration abstraction for paper/bungee plugins.
 
 ```xml
 <dependency>
-    <groupId>com.github.loperd</groupId>
-    <artifactId>org.highcore.configuration</artifactId>
-    <version>1.0</version>
+    <groupId>com.github.highcoremc</groupId>
+    <artifactId>configuration</artifactId>
+    <version>3.0</version>
 </dependency>
 ```
